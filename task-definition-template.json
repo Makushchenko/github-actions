@@ -20,6 +20,6 @@
   ],
   "cpu": "1024",
   "memory": "2048",
-  "executionRoleArn": "$AWS_EXECUTION_ROLE",
-  "taskRoleArn": "$AWS_EXECUTION_ROLE"
+  "executionRoleArn": "",
+  "taskRoleArn": ""
 }
