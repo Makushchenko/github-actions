@@ -32,12 +32,13 @@ on:
       - "master"
 
 env:
-  AWS_REGION         : "us-east-1"                   
-  ECR_REPOSITORY     : "nginx-image-storage"           
-  ECS_SERVICE        : "Custom-server-service"                 
-  ECS_CLUSTER        : "Custom-server-cluster"                 
-  ECS_TASK_DEFINITION: "task-definition-template.json" 
-  CONTAINER_NAME     : "Custom-server-container"          
+  AWS_REGION             : "us-east-1"                   
+  ECR_REPOSITORY         : "nginx-image-storage"           
+  ECS_SERVICE            : "Custom-server-service"                 
+  ECS_CLUSTER            : "Custom-server-cluster"                 
+  ECS_TASK_DEFINITION    : "task-definition-template.json" 
+  CONTAINER_NAME         : "Custom-server-container"
+  AWS_EXECUTION_TASK_ROLE: "arn:aws:iam::346832455654:role/ecsTaskExecutionRole"         
                                               
 
 permissions:
@@ -74,6 +75,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         export IMAGE_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        export AWS_EXECUTION_TASK_ROLE=$AWS_EXECUTION_TASK_ROLE
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
