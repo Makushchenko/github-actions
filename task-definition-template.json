@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "Custom-server-container",
-      "image": "346832455654.dkr.ecr.us-east-1.amazonaws.com/nginx-image-storage:latest",
+      "image": "$IMAGE_NAME",
       "portMappings": [
         {
           "containerPort": 80,
