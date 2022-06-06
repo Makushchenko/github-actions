@@ -75,9 +75,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         export IMAGE_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        export AWS_EXECUTION_ROLE="arn:aws:iam::346832455654:role/ecsTaskExecutionRole"
-        echo $AWS_EXECUTION_ROLE
-        echo $AWS_EXECUTION_ROLE
+        export AWS_EXECUTION_ROLE=arn:aws:iam::346832455654:role/ecsTaskExecutionRole
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
