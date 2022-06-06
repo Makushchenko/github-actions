@@ -27,13 +27,13 @@
 name: Deploy to Amazon ECS
 
 on:
-#  push:
-#    branches:
-#      - "master"
+  push:
+    branches:
+      - "master"
 
 env:
   AWS_REGION         : "us-east-1"                   
-  ECR_REPOSITORY     : "346832455654.dkr.ecr.us-east-1.amazonaws.com/nginx-image-storage"           
+  ECR_REPOSITORY     : "nginx-image-storage"           
   ECS_SERVICE        : "Custom-server-service"                 
   ECS_CLUSTER        : "Custom-server-cluster"                 
   ECS_TASK_DEFINITION: "task-definition-template.json" 
@@ -68,7 +68,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
+        IMAGE_TAG: latest # ${{ github.sha }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can

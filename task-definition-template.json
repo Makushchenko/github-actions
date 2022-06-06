@@ -1,0 +1,25 @@
+{
+  "family": "Custom-server-taskdefinition",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "Custom-server-container",
+      "image": "346832455654.dkr.ecr.us-east-1.amazonaws.com/nginx-image-storage:latest",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "${AWS_EXECUTION_TASK_ROLE}",
+  "taskRoleArn": "${AWS_EXECUTION_TASK_ROLE}"
+}
