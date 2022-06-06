@@ -4,7 +4,7 @@
   "containerDefinitions": [
     {
       "name": "Custom-server-container",
-      "image": "$IMAGE_NAME",
+      "image": "IMAGE_NAME",
       "portMappings": [
         {
           "containerPort": 80,
