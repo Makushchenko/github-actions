@@ -77,6 +77,7 @@ jobs:
         export IMAGE_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         export AWS_EXECUTION_ROLE=$AWS_EXECUTION_TASK_ROLE
         echo $AWS_EXECUTION_ROLE
+        echo $AWS_EXECUTION_ROLE
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
