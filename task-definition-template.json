@@ -20,6 +20,6 @@
   ],
   "cpu": "1024",
   "memory": "2048",
-  "executionRoleArn": "test",
-  "taskRoleArn": "test"
+  "executionRoleArn": "ecsTaskExecutionRole",
+  "taskRoleArn": "ecsTaskExecutionRole"
 }
