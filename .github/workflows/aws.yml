@@ -38,8 +38,7 @@ env:
   ECS_CLUSTER            : "Custom-server-cluster"                 
   ECS_TASK_DEFINITION    : "task-definition-template.json" 
   CONTAINER_NAME         : "Custom-server-container"
-  AWS_EXECUTION_TASK_ROLE: "arn:aws:iam::346832455654:role/ecsTaskExecutionRole"         
-                                              
+  AWS_EXECUTION_TASK_ROLE: "arn:aws:iam::111111111111:role/ecsTaskExecutionRole"         
 
 permissions:
   contents: read
